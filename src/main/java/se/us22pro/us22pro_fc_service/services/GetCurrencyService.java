@@ -18,7 +18,7 @@ public class GetCurrencyService {
         this.webClient = webClientBuilder.build();
     }
 
-    public String convertCurrency(ConverDataModel converDataModel){
+    public ConverDataModel convertCurrency(ConverDataModel converDataModel){
         logger.info("convertCurrency()");
         String urlSearch = "/latest?symbols=";;
         converDataModel.setFrom_currency("EUR");
@@ -26,7 +26,8 @@ public class GetCurrencyService {
         converDataModel.setTo_currency_value(to_value);
         converDataModel.setConverted_value(to_value * converDataModel.getPrice());
         String v = Float.toString(converDataModel.getConverted_value());
-        return v;
+        System.out.println(converDataModel);
+        return converDataModel;
     }
 
 
